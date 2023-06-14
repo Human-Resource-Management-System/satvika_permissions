@@ -50,18 +50,26 @@ public class PermissionsController {
 
 		int indexval = apd.getNextPermissionIndex(id); // for getting the next index value
 
-		PermissionCompositeKey compositeKey = new PermissionCompositeKey();
+		// PermissionCompositeKey compositeKey = new PermissionCompositeKey();
 		compositeKey.setEmpl_id(id);
 		compositeKey.setEp_index(indexval);
 
-		ApplyPermissions applyPermissions = new ApplyPermissions();
-		applyPermissions.setId(compositeKey);
-		applyPermissions.setEprq_date(currentDate1);
-		applyPermissions.setEprq_sttime(sttime1);
-		applyPermissions.setEprq_endtime(endtime1);
-		applyPermissions.setReason(reason);
-		System.out.println(i);
-		apd.persist(applyPermissions);
+		// ApplyPermissions applyPermissions = new ApplyPermissions();
+		// applyPermissions.setId(compositeKey);
+		// applyPermissions.setEprq_date(currentDate1);
+		// applyPermissions.setEprq_sttime(sttime1);
+		// applyPermissions.setEprq_endtime(endtime1);
+		// applyPermissions.setReason(reason);
+		// System.out.println(i);
+		// apd.persist(applyPermissions);
+
+		ap.setId(compositeKey);
+		ap.setEprq_date(currentDate1);
+		ap.setEprq_sttime(sttime1);
+		ap.setEprq_endtime(endtime1);
+		ap.setReason(reason);
+
+		apd.persist(ap);
 
 		return "permissionfinal";
 	}

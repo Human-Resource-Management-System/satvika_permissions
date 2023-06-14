@@ -21,7 +21,7 @@ public class ApplyPermissionDaoImpl {
 	}
 
 	public int getNextPermissionIndex(int employeeId) {
-		String queryString = "SELECT COALESCE(MAX(pr.id.ep_index), 0) + CASE WHEN COUNT(pr) > 0 THEN 1 ELSE 0 END + 1 "
+		String queryString = "SELECT COALESCE(MAX(pr.id.ep_index), 0) + CASE WHEN COUNT(pr) > 0 THEN 1 ELSE 0 END "
 				+ "FROM ApplyPermissions pr WHERE pr.id.empl_id = :empl_id";
 		Query query = em.createQuery(queryString);
 		query.setParameter("empl_id", employeeId);
